@@ -1,26 +1,31 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
+
 // create our Post model
 class Post extends Model {
-  static upvote(body, models) {
-    return models.Vote.create({
-      user_id: body.user_id,
-      post_id: body.post_id
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id
-        },
-        attributes: [
-          'id',
-          'post_text',
-          'title',
-          'created_at',
-          ],
-        });
-    });
+  // static upvote(body, models) {
+  //   return 
+    // models.Post.create({
+    //   user_id: body.user_id,
+    //   post_id: body.post_id
+    // })
+    // .then(() => {
+    //   return Post.findOne({
+    //     where: {
+    //       id: body.post_id
+    //     },
+    //     attributes: [
+    //       'id',
+    //       'post_text',
+    //       'title',
+    //       'created_at',
+    //       ],
+    //     });
+    // });
   }
-}
+
+ 
 
 // create fields/columns for Post model
 Post.init(
@@ -36,8 +41,8 @@ Post.init(
       allowNull: false
     },
     post_text: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.TEXT,
+      allowNull: true,
       },
     user_id: {
       type: DataTypes.INTEGER,
