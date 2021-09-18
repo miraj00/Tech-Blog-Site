@@ -14,11 +14,11 @@
 
 
 
-    <span>Posted by {{user.username}} on {{format_date created_at}} </a>
+    <span>Posted by {{user.username}} on {{format_date created_at}} </span>
     | 
-    <a class="title-css" href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}} </a>
 
-         </div>
+  </div>
 
 
 
